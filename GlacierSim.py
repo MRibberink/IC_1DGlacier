@@ -94,6 +94,6 @@ def glacier_simulation(totL,dx,ntpy,elalist,elayear,dbdh,maxb):
     simdict['hice']=hice_l
     simdict['mass']=mass_l
     #np.save(simname,simdict,allow_pickle=True)
-    return simdict, nframes, hsurfmem,bedrock, smbmem,ifdmem,fldmem,flsmem,iframes
+    return simdict
     # at this point, the simulation is completed.        
     # the following is needed to make the animation
