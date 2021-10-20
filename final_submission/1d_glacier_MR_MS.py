@@ -21,6 +21,7 @@ from scipy.optimize import curve_fit
     # - powers_up.csv : csv file with the best fit parameters for the "up" runs
     # - responsetimes.csv : response times for the bmax runs. See that section for extra notes.
     # - rs.npy: response times from the "up" data, saved as a np array
+#Furthermore, lines_animation.py is the notebook that runs the model and produces the animation given in glacier_animation.py
 
 
 #--------running the model------ 
