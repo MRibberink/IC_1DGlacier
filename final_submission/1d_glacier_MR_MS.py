@@ -57,11 +57,19 @@ betas=[0.005,0.006,0.0075,0.01,0.015,0.02,0.025,0.03]
 #This is repeated for both "up" - inc. mass/dec. ela and "down" dec.mass/inc ela runs. Currently set up for a 'down' run, need to import "up" data
 #np.save('down_data.npy',r_times_down_1)
 
-r_times_down_1=np.load('down_data.npy',allow_pickle=True).item() #when running the full model, comment out this line
+#--------Importing Data--------
+
+r_times_down_1=np.load('down_data.npy',allow_pickle=True).item() #when running the full model, comment out this line (same thing as line 55)
 
 r_time_up=np.load('rs.npy',allow_pickle=True) #response times from the "up" data, saved as a np array
 params_up=pd.read_csv("powers_up.csv") #Parameters for the best fit lines for the "up" data
 
+#Bmax plots were created on an older script, one without the option to run it in a loop and save the results each time, 
+# so I had to manually copy the response time values into an excel file, and then upload it here as a csv.
+resp_t_1=pd.read_csv("responsetimes.csv")
+
+#--------Figure 2 plotting
+#convert to df to fit 
 df_d=pd.DataFrame(data=r_times_down_1)
 df_d.insert(0,"ind",value=[0,1,2,3,4,5])
 
@@ -140,9 +148,7 @@ axs[0].set_title('a.) Response time: decreasing ELA/growing glacier',fontsize=15
 fig.tight_layout()
 plt.savefig("power_plot.pdf") #Figure 2 in the report
 
-#Bmax plots were created on an older script, one without the option to run it in a loop and save the results each time, 
-# so I had to manually copy the response time values into an excel file, and then upload it here as a csv.
-resp_t_1=pd.read_csv("responsetimes.csv")
+#--------Figure 1 plotting ---------
 
 #pulling the values needed to plot
 smb=resp_t_1["Unnamed: 0"][:7]
